@@ -1,0 +1,219 @@
+.feedContainer{
+  padding:4% 4% 0 4% !important;
+  margin-bottom:20rpx;
+}
+.btn-icon{
+  /* border:1px solid red; */
+  float:left;
+  width:30rpx;
+  height:30rpx;
+  position: relative;
+  left:15rpx;
+  top:1rpx; 
+}
+/*template*/
+.feedbackTemplate .header{
+  padding-left:0;
+  position: relative;
+}
+.header .photo-container{
+  padding-left:0;
+  width:120rpx;
+  float: left;
+  text-align: center;
+}
+.photo{
+  width: 80rpx; 
+  height: 80rpx; 
+  background-color: #eeeeee;
+  border-radius:50%;
+  vertical-align: middle;
+}
+.header .name-container{
+  /* border:1px solid red; */
+  float:left;
+  padding-left:20rpx;
+}
+.header .care-container{
+  float:right;
+}
+.header .care-container view{
+  white-space: nowrap;
+  padding:4rpx 10rpx;
+  border:2rpx solid #ff6c89;
+  color:#ff6c89;
+  background-color:#ffffff;
+  border-radius:10rpx;
+  position: relative;
+  right:2rpx;
+}
+.header .care-container view.is-care{
+  border:2rpx solid #ffe2e7;
+  background-color:#ffe2e7;
+}
+.nav{
+  color:#999999;
+}
+.nav.text{
+  color:#adadad;
+  margin-left: 10rpx;
+}
+.feedbackTemplate .footer{
+  margin-top: 10px;
+}
+.feedbackTemplate .header,
+.feedbackTemplate .footer{
+  height: 80rpx;
+  position: relative;
+}
+.feedbackTemplate .footer,
+.feedbackTemplate .body{
+  padding-left: 140rpx;
+}
+.feedbackTemplate .header text{
+  font-size: 24rpx;
+}
+.feedbackTemplate .header .name{
+  left: 120rpx;
+  font-size: 30rpx;
+  color:#448aff;
+  white-space: nowrap;
+}
+.feedbackTemplate .body .character{
+  color: #666666;
+  font-size: 25rpx;
+  line-height: 38rpx;
+}
+.feedbackTemplate .body .intoDetail{
+  padding-left: 0;
+  color: #b1caff;
+  margin: 10rpx 0 10rpx 0;
+}
+.feedbackTemplate .audio-container{
+  padding-left:0;
+  text-align: left;
+}
+.feedbackTemplate .audio-container audio{
+  vertical-align: bottom;
+  margin-bottom:10rpx;
+}
+
+.feedbackTemplate .header .jiejue{
+  display:inline-block;
+  padding-left:0;
+  width:120rpx;
+  line-height:40rpx;
+  text-align:center;
+  color: #fff;
+  border-radius: 8rpx;
+  position: absolute;
+  bottom:-50rpx;
+  left:0;
+}
+.feedbackTemplate .header .jiejue.finished{
+  background-color:#41d89b;
+}
+.feedbackTemplate .header .jiejue.unfinished{
+  background: #ff6c89;
+}
+.feedbackTemplate .footer .time{
+  color:#adadad;
+  float:left;
+}
+.feedbackTemplate .footer view.btn-container{
+  /* border:1px solid red; */
+  float:right;
+  position: relative;
+  right:2rpx;
+}
+.feedbackTemplate .footer view.btn-container>view{
+  color: #999999; 
+  font-size: 25rpx;
+  float:left;
+}
+.feedbackTemplate .footer view.btn-container>view.active{
+  color:#448aff;
+}
+.feedbackTemplate .footer view.btn-container>view:first-child{
+  margin-right:10rpx;
+}
+.feedbackTemplate .footer .share,
+.feedbackTemplate .footer .comments,
+.feedbackTemplate .footer .thumb{
+  padding-left: 0;
+  /* border: 1px solid #999999; */
+  width: 90rpx;
+  text-align: center;
+  line-height: 35rpx;
+  border-radius: 20rpx;
+}
+/* .feedbackTemplate .footer .share.active,
+.feedbackTemplate .footer .comments.active,
+.feedbackTemplate .footer .thumb.active{
+   border-color:#448aff; 
+} */
+.feedbackTemplate .footer .fa{
+  margin-right: 5px;
+}
+
+/*音频播放样式  */
+.feedContainer .audio-container{
+  /* margin:0 20rpx 20rpx 20rpx; */
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.feedContainer .audio-item{
+  height:80rpx;
+  border:1rpx solid #e5e5e5;
+  background-color:#fefefe;
+}
+.feedContainer .play-icon{
+  width:50rpx;
+  height:50rpx;
+  display: inline-block;
+  /* border:1rpx solid red; */
+  position: relative;
+  top:15rpx;
+  left:15rpx;
+}
+.feedContainer .progress-container{
+  position: absolute;
+  top:15rpx;
+  bottom:15rpx;
+  left:80rpx;
+  right:15rpx;
+  /* border:1rpx solid #448aff; */
+  line-height:40rpx;
+}
+.feedContainer .progress-container .time{
+  font-size: 24rpx;
+  margin:0 10rpx;
+  color:#acacac;
+}
+.feedContainer .progress-container .progress-out{
+  display: inline-block;
+  width:70%;
+  height:6rpx;
+  border-radius: 3rpx;
+  background-color:#dfdfdf;
+  margin:0;
+  position: relative;
+  top:-6rpx;
+}
+.feedContainer .progress-container .progress-out .progress-in{
+  position: absolute;
+  left: 0;
+  top:0;
+  bottom:0;
+  width:0;
+  background-color:#448aff;
+  transition: all linear .15;
+}
+.feedContainer .progress-container .progress-out .progress-in .progress-icon{
+  width:30rpx;
+  height:30rpx;
+  /* border:1px solid red; */
+  position: absolute;
+  right:0;
+  transform: translateX(50%) translateY(-12rpx); 
+}

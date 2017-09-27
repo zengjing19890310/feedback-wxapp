@@ -1,0 +1,75 @@
+.container.addFeedback{
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow: hidden;
+  /* border:1rpx solid red; */
+  font-size:0.8rem;
+}
+.container.addFeedback .header{
+  text-align: center;
+  margin:60rpx 0 65rpx 0;
+  /* border:1px solid blue; */
+}
+.menu-container{
+  /* border:1px solid red; */
+  min-height:100rpx;
+  margin:0 15%;
+}
+.menu-container::after{
+  content:'';
+  display: block;
+  clear:both;
+}
+.menu-container .btn-icon{
+  float:left;
+  box-sizing: border-box;
+  width:50%;
+  height:200rpx;
+  /* border:1px solid blueviolet; */
+  text-align:center;
+  position: relative;
+}
+/* .menu-container .btn-icon.border-bottom{
+  border-bottom:1rpx solid #e5e5e5;
+}
+.menu-container .btn-icon.border-right{
+  border-right:1rpx solid #e5e5e5;
+}
+.menu-container .btn-icon.border-right-bottom{
+  border-bottom:1rpx solid #e5e5e5;
+  border-right:1rpx solid #e5e5e5;
+} */
+.menu-container .btn-icon image.main-icon{
+  width:100rpx;
+  height:85rpx;
+  /* border:1px solid red; */
+  vertical-align: middle;
+  margin-top:50rpx;
+}
+.menu-container .btn-icon image.check-icon{
+  width:50rpx;
+  height:34rpx;
+  /* border:1px solid yellow; */
+  position: absolute;
+  top:20rpx;
+  right:20rpx;
+}
+.menu-container .btn-icon view{
+  color:#999999;
+}
+.button-container{
+  margin:100rpx 15%;
+}
+.button-container button{
+  color:white;
+  background-color:#448aff;
+  height:80rpx;
+  line-height: 80rpx;
+  font-size:30rpx;
+}
+.button-container button.button-hover{
+  background-color:#2770ea;
+}

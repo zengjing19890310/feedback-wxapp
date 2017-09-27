@@ -1,0 +1,249 @@
+/* pages/feedbackContent/feedbackContent.wxss */
+@import '../template/audioplayer/audioplayer.wxss';
+
+.container{
+  position: absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  overflow: hidden;
+  background-color:#ebebeb;
+}
+.container>view{
+  /* border:1rpx solid blue; */
+  position: absolute;
+  left: 0;
+  right:0;
+}
+.container .preview-container{
+  top:0;
+  bottom:7%;
+}
+.container .preview-container .btn-contianer{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:7.8%;
+  background-color:#ffffff;
+  margin-bottom:20rpx;
+}
+.btn-done{
+  display: block;
+  font-size:30rpx;
+  padding:10rpx 30rpx;
+  color:#ffffff;
+  background-color:#69a1ff;
+  border-radius:10rpx;
+  position: absolute;
+  right:30rpx;
+  top:50%;
+  transform: translateY(-50%);
+}
+.container .footer-container{
+  bottom:0;
+  top:93%;
+  border-top:1rpx solid #cfd4da;
+  background-color:#ffffff;
+}
+
+.clear::after{
+  content:'';
+  display: block;
+  clear:both;
+}
+
+.preview-section{
+  /* border:1px solid red;   */
+  position:absolute;
+  top:9.5%;
+  bottom:0;
+  left:0;
+  right:0%;
+  padding-top:20rpx;
+  background-color:#ffffff;
+  overflow-y: scroll;
+}
+.preview-section .empty{
+  text-align: center;
+}
+.panel{
+  position: absolute;
+  top:0;
+  bottom:0;
+}
+.panel.switch-panel{
+  left:0;
+  width:12.4%;
+}
+.panel image{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.panel.switch-panel image{
+  width:64rpx;
+  height:64rpx;
+}
+.panel.photo-panel{
+  right:0;
+  width:12.4%;
+}
+.panel.photo-panel image{
+  width:65rpx;
+  height:55rpx;
+}
+.panel.input-panel{
+  left:12.4%;
+  right:12.4%;
+}
+.panel.input-panel .input-container{
+  border:1px solid #e7e9ed;
+  width:100%;
+  position: absolute;
+  top:15%;
+  bottom:15%;
+}
+.radio{
+  text-align: center;
+}
+.radio.press-record{
+  background-color:#cfd4da;
+}
+.radio text{
+  font-size:32rpx;
+  color:#448aff;
+}
+.panel.input-panel .input-container input{
+  color:#448aff;
+  padding-left: 10rpx;
+  font-size: 32rpx;
+  vertical-align: bottom;
+}
+.placeholder{
+  font-size:32rpx;
+  color:#e7e9ed;
+}
+
+.text-container{
+  margin:0 20rpx 20rpx 20rpx;
+  border:1rpx solid #448aff;
+  padding:10rpx 10rpx 46rpx 10rpx;
+  background-color:#dae8ff;
+  border-radius:10rpx;
+  color:#333333;
+  font-size:28rpx;
+  position: relative;
+}
+.text-container .text-content{
+  display: block;
+  white-space:pre-wrap;
+  word-break: break-word;
+}
+.text-container .delete-icon,
+.audio-container .delete-icon{
+  position:absolute;
+  bottom:10rpx;
+  right:10rpx;
+  color:#448aff;
+  font-size:36rpx;
+}
+.image-container{
+  /* display: flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content: flex-start; */
+  margin:0 20rpx;
+}
+.image-container::after{
+  display: block;
+  content:'';
+  clear: both;
+}
+.image-item{
+  width:30%;
+  margin-bottom:20rpx;
+  margin-right:3%;
+  height:180rpx;
+  /* border:1rpx solid red; */
+  /* align-items: flex-start; */
+  position: relative;
+  float: left;
+}
+/* .image-item.middle{
+  margin-left:5%;
+  margin-right:5%;
+} */
+.image-item image{
+  vertical-align: top;
+  width:100%;
+  height:100%;
+}
+.image-item .delete-icon{
+  position: absolute;
+  top:5rpx;
+  right:5rpx;
+  color:#448aff;
+  font-size: 36rpx;
+}
+.audio-container{
+  margin:0 20rpx 20rpx 20rpx;
+  position: relative;
+}
+.audio-item{
+  height:80rpx;
+  border:1rpx solid #e5e5e5;
+  background-color:#fefefe;
+}
+.play-icon{
+  width:50rpx;
+  height:50rpx;
+  display: inline-block;
+  /* border:1rpx solid red; */
+  position: relative;
+  top:15rpx;
+  left:15rpx;
+}
+.progress-container{
+  position: absolute;
+  top:15rpx;
+  bottom:15rpx;
+  left:80rpx;
+  right:15rpx;
+  /* border:1rpx solid #448aff; */
+  line-height:40rpx;
+}
+.progress-container .time{
+  font-size: 24rpx;
+  margin:0 10rpx;
+  color:#acacac;
+}
+.progress-container .progress-out{
+  display: inline-block;
+  width:70%;
+  height:6rpx;
+  border-radius: 3rpx;
+  background-color:#dfdfdf;
+  margin:0;
+  position: relative;
+  top:-6rpx;
+}
+.progress-container .progress-out .progress-in{
+  position: absolute;
+  left: 0;
+  top:0;
+  bottom:0;
+  width:0;
+  background-color:#448aff;
+  transition: all linear .15;
+}
+.progress-container .progress-out .progress-in .progress-icon{
+  width:30rpx;
+  height:30rpx;
+  /* border:1px solid red; */
+  position: absolute;
+  right:0;
+  transform: translateX(50%) translateY(-12rpx); 
+}

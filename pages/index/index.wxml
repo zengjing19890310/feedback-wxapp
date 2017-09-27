@@ -1,0 +1,54 @@
+<view bindscrolltolower="lowerUpdata" class="index-container" style="height:{{clientHeight?clientHeight+'px':'auto'}};">
+  <loading wx:if="{{showLoading}}">加载中...</loading>
+  <view class="dealMessage">
+    <view class="notDeal dealBlock">
+      <view class="notDealView">
+        <!-- <text class="fa fa-clock-o panel-icon"></text> -->
+        <text class="fa fa-clock-o dealText"> 待处理</text>
+        <text class="dealCount">{{notDealDataCount}}</text>
+      </view>
+    </view>
+    <view class="yetDeal dealBlock">
+      <view class="yetDealView">
+        <!-- <text class="fa fa-check-circle-o panel-icon"></text> -->
+        <text class="fa fa-check-circle-o dealText"> 已处理</text>
+        <text class="dealCount">{{yetDealDataCount}}</text>
+      </view>
+    </view>
+  </view> 
+  <view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">最新</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">最热</view> 
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">全部</view>
+    <view class="tab-icon-container">
+      <image src="../../images/list.png" class="tab-icon" data-type="list" bindtap="changeList"></image>
+      <image src="../../images/mofang.png" class="tab-icon" data-type="mofang" bindtap="changeList"></image>
+    </view>    
+  </view>  
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height: {{clientHeight?clientHeight-185+'px':'auto'}}" bindchange="bindChange">  
+    <import src="../template/feedback/feedback.wxml"></import> 
+    <!-- 最新 -->  
+    <swiper-item>  
+      <!-- <view>最新反馈</view>   -->
+      <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight-185+'px':'auto'}}" class="feedbackTemplate" bindscrolltolower="showMoreFeedback">
+        <template is="feedback" wx:for="{{allData}}" data="{{item,curr}}"></template>  
+        <text class=" bottom-line {{bottom_line ? 'showView' : 'hideView' }}">没有更多数据...</text>
+      </scroll-view>
+    </swiper-item>  
+    <!-- 最热 -->  
+    <swiper-item>  
+      <!-- <view>最热反馈</view>   -->
+      <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight-185+'px':'auto'}}" class="feedbackTemplate" bindscrolltolower="showMoreFeedback">
+          <template is="feedback" wx:for="{{allData}}" data="{{item,curr}}"></template>  
+          <text class=" bottom-line {{bottom_line ? 'showView' : 'hideView' }}">没有更多数据...</text>
+      </scroll-view>
+    </swiper-item>  
+    <!-- 全部 -->  
+    <swiper-item>
+      <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight-185+'px':'auto'}}" class="feedbackTemplate" bindscrolltolower="showMoreFeedback">
+        <template is="feedback" wx:for="{{allData}}" data="{{item,curr}}"></template>  
+        <text class=" bottom-line {{bottom_line ? 'showView' : 'hideView' }}">没有更多数据...</text>
+      </scroll-view>
+    </swiper-item>  
+  </swiper>  
+</view>

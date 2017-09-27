@@ -1,0 +1,45 @@
+<view class="container addFeedback">
+  <view class="header">
+    选择你的版块
+  </view>
+  <view class="menu-container">
+    <view wx:for="{{topicList}}" wx:key="id" class="btn-icon" bindtap="selTopic" data-topic="{{item.name}}" data-topicid="{{item.id}}">
+      <image src="/images/{{item.id}}.png" class="main-icon" data-topic="{{item.name}}" data-topicid="{{item.id}}"></image>
+      <view data-topic="{{item.name}}" data-topicid="{{item.id}}">{{item.name}}</view>
+      <image src="/images/check.png" class="check-icon" wx:if="{{topic===item.name}}" data-topic="{{item.name}}" data-topicid="{{item.id}}"></image>
+    </view> 
+    <!-- <view class="btn-icon" bindtap="selTopic" data-topic="博物馆">
+      <image src="/images/1.png" class="main-icon" data-topic="博物馆"></image>
+      <view data-topic="博物馆">博物馆</view>
+      <image src="/images/check.png" class="check-icon" wx:if="{{topic==='博物馆'}}" data-topic="博物馆"></image>
+    </view>
+    <view class="btn-icon" bindtap="selTopic" data-topic="社区">
+      <image src="/images/2.png" class="main-icon" data-topic="社区"></image>
+      <view data-topic="社区">社区</view>
+      <image src="/images/check.png" class="check-icon" wx:if="{{topic==='社区'}}" data-topic="社区"></image>
+    </view>
+    <view class="btn-icon" bindtap="selTopic" data-topic="肉牛">
+      <image src="/images/3.png" class="main-icon" data-topic="肉牛"></image>
+      <view data-topic="肉牛">肉牛</view>
+      <image src="/images/check.png" class="check-icon" wx:if="{{topic==='肉牛'}}" data-topic="肉牛"></image>
+    </view>
+    <view class="btn-icon" bindtap="selTopic" data-topic="农业">
+      <image src="/images/4.png" class="main-icon" data-topic="农业"></image>
+      <view data-topic="农业">农业</view>
+      <image src="/images/check.png" class="check-icon" wx:if="{{topic==='农业'}}" data-topic="农业"></image>
+    </view>
+    <view class="btn-icon" bindtap="selTopic" data-topic="大棚">
+      <image src="/images/5.png" class="main-icon" data-topic="大棚"></image>
+      <view data-topic="大棚">大棚</view>
+      <image src="/images/check.png" class="check-icon" wx:if="{{topic==='大棚'}}" data-topic="大棚"></image>
+    </view>
+    <view class="btn-icon" bindtap="selTopic" data-topic="其他">
+      <image src="/images/6.png" class="main-icon" data-topic="其他"></image>
+      <view data-topic="其他">其他</view>
+      <image src="/images/check.png" class="check-icon" wx:if="{{topic==='其他'}}" data-topic="其他"></image>
+    </view> -->
+  </view>
+  <view class="button-container">
+    <button bindtap="nextstep">下一步</button>
+  </view>
+</view>

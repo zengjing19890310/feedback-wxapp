@@ -1,0 +1,152 @@
+/* pages/index/index.wxss */
+@import '../template/feedback/feedback.wxss';
+.index-container{
+ overflow:hidden;
+ background-color:#ebebeb;
+}
+.index-container view{
+  background-color:#ffffff;
+}
+.showView{
+  display: block;
+}
+.content-container{
+  border:1px solid red;
+  position: absolute;
+  left:4%;
+  right:4%;
+  top:0;
+  bottom:0;
+  overflow: hidden;
+}
+.hideView{
+  display: none;
+}
+.dealMessage{
+  height: 120px;
+  padding:20rpx 4%;
+}
+.dealBlock{
+  float:left;
+  width:50%;
+  height:120px;
+}
+.yetDealView,
+.notDealView{
+  height: 90%;
+  margin-top: 2%;
+  position: relative;
+}
+.notDealView{
+  margin-right: 2%;
+  background: linear-gradient(45deg, #ff5a93 0%, #ff9972 60%, #ffa26e 100%); 
+}
+.yetDealView{
+  margin-left: 2%;
+  background: linear-gradient(45deg, #1aadaf 0%, #3cd19d 60% , #4aed9b 100%);
+}
+.dealText,
+.dealCount{
+  display: inline-block;
+  position: absolute;
+  color: #fff;
+}
+.dealText{
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.dealCount{
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* .tabChangeMenu{
+  margin-top: 10px;
+  height: 20px;
+}
+.tabMenu{
+  float: left;
+  width: 33%;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+} */
+
+/***********************/
+.swiper-tab{  
+  width: 100%;  
+  text-align: center;  
+  line-height: 1.6rem;
+  margin: 20rpx 0;
+  padding:0 4%;
+  box-sizing: border-box;
+}  
+.swiper-tab::after{
+  content:'';
+  display: block;
+  clear: both;
+}
+.swiper-tab .tab-icon-container{
+  float:right;
+  /* border:1px solid red; */
+}
+.swiper-tab .tab-icon-container .tab-icon{
+  display: inline-block;
+  width:1rem;
+  height:0.8rem;
+  /* border:1px solid blue; */
+  position: relative;
+  top:0.2rem;
+}
+.swiper-tab .tab-icon-container .tab-icon:first-child{
+  margin-right:0.6rem;
+}
+.swiper-tab-list{
+  font-size: 0.8rem;  
+  color: #bfbfbf;
+  font-weight: normal;
+  float:left;
+  padding:0 0.6rem 0 0.6rem; 
+  position: relative;
+  top:1px; 
+}  
+.on{
+  color: #448aff;  
+  font-weight: bold;
+  border-bottom:2px solid #448aff;
+  /* border-top: 3rpx solid #999999; */
+}  
+  
+.swiper-box{
+  display: block; 
+  box-sizing: border-box;
+  width:100%;
+  height:100%;
+  overflow: hidden;
+  background-color: #ebebeb;
+}  
+.swiper-box view{  
+  /* text-align: center;   */
+  padding-left: 2%;
+  font-size: 25rpx;
+}  
+
+.dealMessage .fa{
+  font-size:36rpx;
+}
+.dealMessage .notDealView .fa{
+  color: #ffffff;
+}
+.dealMessage .yetDealView .fa{
+  color: #ffffff;
+}
+.bottom-line{
+  text-align: center;
+  font-size: 25rpx;
+  color: #999999;
+  margin-bottom: 32rpx;
+}

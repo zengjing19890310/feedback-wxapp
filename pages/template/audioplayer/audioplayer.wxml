@@ -1,0 +1,5 @@
+<template name="audioplayer">
+  <audio wx:for="{{item.audionUrls}}" name="{{item.fbUser.nickName}}" author="{{item.fbUser.nickName}}" wx:for-item="audios" poster="{{item.fbUser.avatarUrl}}" src="{{audios}}" class="voice" bindtap="play" data-path="{{audios}}" id="{{audios}}">
+    <image src="/images/playvoice.png" class="playIcon"></image>
+  </audio>
+</template>

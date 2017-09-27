@@ -1,0 +1,17 @@
+audio.voice{
+  border:1rpx solid #e5e5e5;
+  display: block;
+  width:99%;
+  height:70rpx;
+  box-sizing: border-box;
+  background-color: #fefefe;
+  position: relative;
+}
+audio.voice image.playIcon{
+  width:50rpx;
+  height:50rpx;
+  position: absolute;
+  left:15rpx;
+  top:9rpx;
+  vertical-align: middle;
+}

@@ -1,0 +1,64 @@
+<template name="feedback">
+  <view class="feedContainer" wx:key="{{item.questionId}}">
+    <view class="header">
+      <view class="photo-container">
+        <image class="photo" mode="scaleToFill" src="{{item.fbUser.avatarUrl}}"></image>
+      </view>
+      <view class="name-container">
+         <view class="name">{{item.fbUser.nickName}}</view>
+         <text class="fa fa-map-marker nav"></text><text class="nav text">{{item.fbUser.company||'-'}}</text>
+      </view>
+      <view class="jiejue {{item.status === '已处理' ? 'finished' : 'unfinished'}}">
+        <text class="{{item.status === '已处理' ? 'fa fa-check-circle-o' : 'fa fa-clock-o'}}" style="margin-right:10rpx">{{item.status}}</text>
+      </view>
+      <view class="care-container" catchtap="zan" data-qid="{{item.questionId}}">
+        <view wx:if="{{!item.isCare}}" data-qid="{{item.questionId}}">
+          <text class="fa fa-plus" data-qid="{{item.questionId}}"></text><text data-qid="{{item.questionId}}"> 好问题,我关注</text>
+        </view>
+        <view wx:if="{{item.isCare}}" class="is-care" data-qid="{{item.questionId}}">
+          <text class="fa fa-check" data-qid="{{item.questionId}}"></text><text data-qid="{{item.questionId}}"> 好问题,已关注</text>
+        </view>
+      </view>
+    </view>
+    <view class="body">
+      <text class="character" style="word-break: break-all;" catchtap="intoDetail" data-qid="{{item.questionId}}">{{item.content}}</text>
+      <view class="intoDetail" catchtap="intoDetail" data-qid="{{item.questionId}}">查看全部</view>
+      <view class="imageList" style="padding-left:0px;margin:10px 0;" wx:if="{{item.images.length!==0}}">
+        <image wx:for="{{item.images}}" wx:for-item="imageSingle" src="{{imageSingle}}" style="width:30%;height:80px;margin-right:3%;vertical-align:bottom;margin-bottom:20rpx;"></image>
+      </view>
+    </view>
+    <!--音频文件  -->
+    <view class="audio-container" wx:for="{{item.audionUrls}}" wx:for-item="url" wx:for-index="index" data-path="{{url}}" bindtap="playRecord">
+      <view class="audio-item">
+        <image src="{{curr===url?'/images/playing.gif':'/images/play.png'}}" data-url="{{url}}" class="play-icon" data-curr="{{curr}}"></image>  
+        <!-- <view class="progress-container">
+          <text class="time">00:00</text>
+          <view class="progress-out">
+            <view class="progress-in">
+              <image src="/images/progress.png" class="progress-icon" wx:if="{{playing===index}}"></image>
+            </view>
+          </view>
+          <text class="time">03:00</text>
+        </view> -->
+      </view>
+    </view>
+    <view class="footer">
+      <view class="fa fa-clock-o time" style="padding-left:0"> {{item.fbTimeDesc}}</view>
+      <view class="btn-container">
+        <view data-qid="{{item.questionId}}" catchtap="flower" class="{{item.isFlower?'share active':'share'}}">
+          <image class="btn-icon" data-qid="{{item.questionId}}" src="{{item.isFlower?'/images/hua-active.png':'/images/hua.png'}}"></image>
+          {{item.flowerTotal}}
+        </view>
+        <!-- 2017-9-14取消点赞功能 -->
+        <!-- <view data-qid="{{item.questionId}}" catchtap="zan" class="{{item.isCare?'comments active':'comments'}}">
+          <image class="btn-icon" data-qid="{{item.questionId}}" src="{{item.isCare?'/images/zan-active.png':'/images/zan.png'}}"></image>
+          {{item.careTotal}}
+        </view>  -->
+        <view class="thumb" data-qid="{{item.questionId}}" catchtap="comment">
+          <image class="btn-icon" data-qid="{{item.questionId}}" src="/images/ping.png"></image>
+          {{item.commitTotal}}
+        </view>
+      </view>
+    </view> 
+  </view>
+</template>

@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/addFeedback/addFeedback",
+    "pages/feedbackDetail/feedbackDetail",
+    "pages/myFeedback/myFeedback",
+    "pages/feedbackContent/feedbackContent",
+    "pages/userStatus/userStatus"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#448aff",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "智联反馈",
+    "backgroundColor": "#448aff",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#bdbdbd",
+    "selectedColor": "#333333",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list":[{
+      "pagePath":"pages/index/index",
+      "text": "首页",
+      "iconPath":"images/home.png",
+      "selectedIconPath":"images/home-active.png"
+    },{
+      "pagePath": "pages/userStatus/userStatus",
+      "iconPath":"images/plus.png",
+      "selectedIconPath": "images/plus.png"
+    },{
+      "pagePath":"pages/myFeedback/myFeedback",
+      "text":"我的",
+      "iconPath": "images/user.png",
+      "selectedIconPath": "images/user-active.png"
+    }]
+  }
+}

@@ -1,0 +1,79 @@
+<!--pages/feedbackContent/feedbackContent.wxml-->
+<view class="container">
+  <view class="preview-container">
+    <view class="preview-header">
+      <view class="btn-contianer">
+       <text class="btn-done" bindtap="saveFeedback">完成</text>
+      </view> 
+    </view>
+    <view class="preview-section">
+      <view class="empty" wx:if="{{content.length===0}}">
+        <view style="width:80%;margin:0 auto;">
+          <image src="/images/empty.png" style='vertical-align:middle;opacity:0.3;width:100%;' mode="aspectFit"></image>
+        </view>
+        <view style="margin:0 15%;">
+          <text style="font-size:34rpx;color:#b1caff;position:relative;top:-80rpx;">可以用一段文字、一句话、拍照来描述你所遇到的问题</text>
+        </view>
+      </view>
+      <view wx:else>
+        <view wx:for="{{content}}" wx:for-index="index" wx:for-item="item">
+          <!--文字信息  -->
+          <view wx:if="{{item.type==='text'}}" class="text-container">
+            <!-- {{index}}.{{item.type}}: -->
+            <view class="text-content">{{item.data}}</view>
+            <text class="fa fa-trash-o delete-icon" bindtap='removeItem' data-index="{{index}}"></text>
+          </view>
+          <!--图片信息  -->
+          <view wx:elif="{{item.type==='image'}}" class="image-container">
+            <!-- {{index}}.{{item.type}}:{{item.data.length}} -->
+            <!-- {{(imageIndex===1||imageIndex===4||imageIndex===7)?'image-item middle':'image-item'}} -->
+            <view wx:for="{{item.data}}" wx:for-item="url" class="image-item" wx:for-index="imageIndex">
+               <image src="{{url}}"></image> 
+               <text class="fa fa-trash-o delete-icon" bindtap='removeItem' data-index="{{index}}" data-imageIndex="{{imageIndex}}"></text>
+            </view>
+          </view>
+          <!--语音信息  -->
+          <view wx:elif="{{item.type==='audio'}}" class="audio-container" data-index="{{index}}" bindtap="playRecord" data-path="{{item.data}}">
+            <view class="audio-item">
+              <image src="{{playing===index?'/images/playing.gif':'/images/play.png'}}" class="play-icon"></image>
+              <!-- <view class="progress-container">
+                <text class="time">00:00</text>
+                <view class="progress-out">
+                  <view class="progress-in">
+                    <image src="/images/progress.png" class="progress-icon" wx:if="{{playing===index}}"></image>
+                  </view>
+                </view>
+                <text class="time">03:00</text>
+              </view> -->
+            </view>
+            <text class="fa fa-trash-o delete-icon" catchtap='removeItem' data-index="{{index}}"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer-container">
+    <view class="panel switch-panel" bindtap="changeInputType">
+      <image src="/images/record.png" wx:if="{{currInputType==='txt'}}"></image>
+      <image src="/images/keyboard.png" wx:if="{{currInputType==='radio'}}"></image>
+    </view>
+    <view class="panel input-panel">
+      <view class="input-container radio" wx:if="{{currInputType==='radio'}}" bindtouchstart="recordStart" bindtouchend="recordEnd" bindtouchcancel="recordCancel" hover-class="press-record">
+        <text>按住说话</text>
+      </view>
+      <view class="input-container" wx:if="{{currInputType==='txt'}}">
+        <input placeholder-class='placeholder' value="{{inputContent}}" placeholder='输入文字' confirm-type="done" bindconfirm="confirmText"></input>
+      </view>
+    </view>
+    <view class="panel photo-panel" bindtap="selImages">
+      <image src="/images/photo.png"></image>
+    </view>
+  </view>
+  <!-- <text>{{topicid}}{{topic}}{{questionid}}{{openid}}</text>
+  <button 
+  bindtouchstart="recordStart"
+  bindtouchend="recordEnd"
+  bindtouchcancel="recordCancel"
+  >开始录音</button> -->
+</view>
+

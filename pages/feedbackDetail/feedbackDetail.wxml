@@ -1,0 +1,102 @@
+<view class="feedbackDetail" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+   <view class="container" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+    <view class="detailInfo" >
+      <view class="header">
+        <view class="left">
+          <image
+           style="width: 80rpx; height: 80rpx; background-color: #eeeeee;border-radius:50%;vertical-align:middle;" 
+           mode="scaleToFill" 
+           src="{{commentInfo.fbUser.avatarUrl}}"></image>
+          <text class="name">{{commentInfo.fbUser.nickName}}</text>
+        </view>
+        <view class="right">
+          <text class="focus {{commentInfo.isCare ? 'focusBackGround':''}}" bindtap="focusPro"><text class="{{commentInfo.isCare ? 'fa fa-check' : 'fa fa-plus'}}"></text>{{commentInfo.isCare?' 好问题,已关注':' 好问题,我关注'}}</text>
+        </view>
+      </view>
+      <view class="body" style="display:block;">
+        <view class="content">
+          <view class="status {{commentInfo.status === '未处理' ? 'notStatus':'yetStatus'}}"><text class="{{commentInfo.status === '已处理' ? 'fa fa-check-circle-o' : 'fa fa-clock-o'}}" style="margin-right:10rpx"></text><text>{{commentInfo.status}}</text></view>
+          {{commentInfo.content}}
+        </view>
+        <view class="detail-image">
+          <image wx:for="{{commentInfo.images}}" src="{{item}}" style="width:30%;height:80px;margin-right:3%"></image>
+        </view>
+        <view class="footer">
+          <view class="time">{{commentInfo.fbTime}}</view>
+          <view class="interaction">
+            <text class="flower faFlog"><text class="fa fa-cog" style="margin-right:5rpx"></text>{{commentInfo.flowerTotal}}</text>
+            <text class="care faFlog"><text class="fa fa-thumbs-o-up" style="margin-right:5rpx"></text>{{commentInfo.careTotal}}</text>
+            <text class="commit faFlog"><text class="fa fa-commenting-o" style="margin-right:5rpx"></text>{{commentInfo.commitTotal}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="detailProcess">
+      <view class="swiper-tab">  
+        <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">问题回复</view>  
+        <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">处理过程</view>    
+      </view> 
+      <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindchange="bindChange">  
+        <!-- 问题回复 -->  
+        <swiper-item>
+          <scroll-view class="questionReply" scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+            <view class="content">
+              <view>
+                秋风起兮白云飞，草木黄落兮雁南归。
+                兰有秀兮菊有芳，怀佳人兮不能忘。
+                泛楼船兮济汾河，横中流兮扬素波。
+                箫鼓鸣兮发棹歌，欢乐极兮哀情多。
+                少壮几时兮奈老何！
+              </view>
+            </view>
+            <view class="comments">
+              <view class="comments_data" wx:for="{{commitDetailsInfo}}">
+                <view class="comment_name">
+                  <image
+                    style="width: 25px; height: 25px; background-color: #eeeeee;border-radius:50%;" 
+                    mode="scaleToFill" 
+                    src="{{item.commitUser.avatarUrl}}"></image>
+                  <text class="name">{{item.commitUser.nickName}}</text>
+                  <text class="job">{{item.commitUser.role}}</text>
+                  <text class="no">{{index+1}}楼</text>
+                </view>
+                <view class="contents" bindtap="replyCommit" data-nickName="{{item.commitUser.nickName}}" data-commId = "{{item.commitId}}" data-replyTo="{{item.commitUser.openid}}">
+                  {{item.content}} 
+                </view>
+                <view class="replyCommimt" wx:if="{{item.userReplies.length !== 0}}">
+                  <view class="replyContent {{item.userReplies.length == 0 ? 'hideView':'showView'}}" wx:for="{{item.userReplies}}" wx:for-item="replySingle">
+                    <view class="replyHeader">
+                      <text class="replyName">{{replySingle.userFrom.nickName}}</text>
+                      <text class="replyTime">{{replySingle.replyTime}}</text>
+                    </view>
+                    <view class="replyBody">
+                      <text class="replyContent">{{replySingle.content}}</text>
+                    </view>
+                  </view>
+                </view>
+                <view class="floor">
+                  <text class="time">{{item.commitTime}}</text>
+                  <text class="thumbs faFlog1"><text class="fa fa-thumbs-o-up"></text>点赞</text>
+                  <text class="commentss faFlog1"><text class="fa fa-commenting-o"></text>评论</text>
+                </view>
+              </view>
+            </view>
+          </scroll-view > 
+        </swiper-item>  
+        <!-- 处理过程 -->  
+        <swiper-item>  
+          <view>处理过程</view>  
+        </swiper-item>   
+      </swiper>  
+    </view>
+  <!--评论盒子-->
+  <view class="cf-bg" catchtap="cemojiCfBg" style="display:{{cfBg ? 'block' : 'none'}}"></view>
+    <view class="comment-fixed">
+      <view class="cf-box">
+        <view class="emoji iconfont icon-emoji"></view>
+        <textarea class="cf-content" maxlength="600" focus="{{focusText}}" auto-height placeholder="{{placeholderText}}"  bindblur="textBindBlur" value="{{textareaValue}}"/>
+        <text class="cf-send touch-active" bindtap="send">发送</text>
+      </view>
+    </view>
+  </view>
+</view>
